@@ -15,7 +15,6 @@
 
 [root@node1 ~]# cat /var/lib/pgsql/14/data/postgresql.conf
 <details>
-```
 [root@node1 ~]# cat /var/lib/pgsql/14/data/postgresql.conf
 #Указываем ip-адреса, на которых postgres будет слушать трафик на порту 5432 (параметр port)
 listen_addresses = 'localhost, 192.168.57.11'
@@ -52,12 +51,12 @@ max_replication_slots = 3
 hot_standby_feedback = on
 #Включаем использование зашифрованных паролей
 password_encryption = scram-sha-256
-
-```
 </details>
+
 [root@node1 ~]# cat /var/lib/pgsql/14/data/pg_hba.conf
+
 <details>
-```# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
 # "local" is for Unix domain socket connections only
 local   all                  all                                                peer
 # IPv4 local connections:
@@ -73,9 +72,8 @@ host    replication replication    192.168.57.11/32        scram-sha-256
 host    replication replication    192.168.57.12/32        scram-sha-256
 host    all   barman    192.168.57.13/32    scram-sha-256
 host    replication   barman    192.168.57.13/32    scram-sha-256
-```
- </details>
-
+</details>
+ 
 Заходим в psql:
 [vagrant@node1 ~]$ sudo -u postgres psql
 could not change directory to "/home/vagrant": Permission denied
